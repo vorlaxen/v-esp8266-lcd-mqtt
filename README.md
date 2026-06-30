@@ -1,4 +1,4 @@
-# Vorlaxen ESP8266 LCD
+# Vorlaxen ESP8266 LCD MQTT
 
 WiFi-connected IoT firmware for the ESP8266. Provisions over a captive portal, serves a local web panel, and drives a 16×2 I2C LCD — including Turkish characters.
 

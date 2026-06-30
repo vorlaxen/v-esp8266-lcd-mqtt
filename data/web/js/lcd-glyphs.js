@@ -1,0 +1,233 @@
+/**
+ * LCD glyph bitmaps — keep in sync with src/display/TurkishLcdText.cpp
+ */
+const LCD_PREVIEW = {
+  PX: 3,
+  CHAR_W: 5,
+  CHAR_H: 8,
+  get CELL_W() { return this.CHAR_W * this.PX + 1; },
+  get CELL_H() { return this.CHAR_H * this.PX + 1; }
+};
+
+const TURKISH_GLYPHS = {
+  "\u00E7": [0x00, 0x00, 0x0E, 0x11, 0x11, 0x11, 0x0E, 0x04],
+  "\u011F": [0x08, 0x08, 0x0E, 0x11, 0x11, 0x11, 0x0E, 0x00],
+  "\u0131": [0x00, 0x00, 0x0C, 0x04, 0x04, 0x04, 0x00, 0x00],
+  "\u00F6": [0x00, 0x0A, 0x00, 0x0E, 0x11, 0x11, 0x0E, 0x00],
+  "\u015F": [0x00, 0x00, 0x0E, 0x11, 0x0E, 0x01, 0x0E, 0x04],
+  "\u00FC": [0x00, 0x0A, 0x00, 0x11, 0x11, 0x11, 0x0E, 0x00],
+  "\u00C7": [0x04, 0x00, 0x0E, 0x11, 0x11, 0x11, 0x0E, 0x04],
+  "\u011E": [0x04, 0x0A, 0x0E, 0x11, 0x11, 0x11, 0x0E, 0x00],
+  "\u0130": [0x04, 0x00, 0x04, 0x04, 0x04, 0x04, 0x0E, 0x00],
+  "\u00D6": [0x04, 0x0A, 0x00, 0x0E, 0x11, 0x11, 0x0E, 0x00],
+  "\u015E": [0x04, 0x00, 0x0E, 0x11, 0x0E, 0x01, 0x0E, 0x04],
+  "\u00DC": [0x04, 0x0A, 0x00, 0x11, 0x11, 0x11, 0x0E, 0x00]
+};
+
+const ASCII_GLYPHS = {
+  " ": [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+  "!": [0x04, 0x04, 0x04, 0x04, 0x04, 0x00, 0x04, 0x00],
+  "-": [0x00, 0x00, 0x00, 0x1F, 0x00, 0x00, 0x00, 0x00],
+  ".": [0x00, 0x00, 0x00, 0x00, 0x00, 0x0C, 0x0C, 0x00],
+  "0": [0x0E, 0x11, 0x13, 0x15, 0x19, 0x11, 0x0E, 0x00],
+  "1": [0x04, 0x0C, 0x04, 0x04, 0x04, 0x04, 0x0E, 0x00],
+  "2": [0x0E, 0x11, 0x01, 0x02, 0x04, 0x08, 0x1F, 0x00],
+  "3": [0x0E, 0x11, 0x01, 0x06, 0x01, 0x11, 0x0E, 0x00],
+  "A": [0x04, 0x0A, 0x11, 0x11, 0x1F, 0x11, 0x11, 0x00],
+  "I": [0x0E, 0x04, 0x04, 0x04, 0x04, 0x04, 0x0E, 0x00],
+  "K": [0x11, 0x12, 0x14, 0x18, 0x14, 0x12, 0x11, 0x00],
+  "L": [0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x1F, 0x00],
+  "E": [0x1F, 0x10, 0x1E, 0x10, 0x10, 0x10, 0x1F, 0x00],
+  "M": [0x11, 0x1B, 0x15, 0x11, 0x11, 0x11, 0x11, 0x00],
+  "N": [0x11, 0x19, 0x15, 0x13, 0x11, 0x11, 0x11, 0x00],
+  "O": [0x0E, 0x11, 0x11, 0x11, 0x11, 0x11, 0x0E, 0x00],
+  "R": [0x1E, 0x11, 0x11, 0x1E, 0x14, 0x12, 0x11, 0x00],
+  "T": [0x1F, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x00],
+  "U": [0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x0E, 0x00],
+  "V": [0x11, 0x11, 0x11, 0x11, 0x11, 0x0A, 0x04, 0x00],
+  "a": [0x00, 0x00, 0x0E, 0x01, 0x0F, 0x11, 0x0F, 0x00],
+  "c": [0x00, 0x00, 0x0E, 0x11, 0x10, 0x11, 0x0E, 0x00],
+  "d": [0x01, 0x01, 0x0D, 0x13, 0x11, 0x11, 0x0F, 0x00],
+  "e": [0x00, 0x00, 0x0E, 0x11, 0x1F, 0x10, 0x0E, 0x00],
+  "h": [0x10, 0x10, 0x16, 0x19, 0x11, 0x11, 0x11, 0x00],
+  "i": [0x04, 0x00, 0x0C, 0x04, 0x04, 0x04, 0x0E, 0x00],
+  "k": [0x10, 0x10, 0x12, 0x14, 0x18, 0x14, 0x12, 0x00],
+  "l": [0x0C, 0x04, 0x04, 0x04, 0x04, 0x04, 0x0E, 0x00],
+  "n": [0x00, 0x00, 0x16, 0x19, 0x11, 0x11, 0x11, 0x00],
+  "o": [0x00, 0x00, 0x0E, 0x11, 0x11, 0x11, 0x0E, 0x00],
+  "r": [0x00, 0x00, 0x16, 0x19, 0x10, 0x10, 0x10, 0x00],
+  "s": [0x00, 0x00, 0x0E, 0x10, 0x0E, 0x01, 0x0E, 0x00],
+  "t": [0x04, 0x04, 0x0E, 0x04, 0x04, 0x04, 0x03, 0x00],
+  "u": [0x00, 0x00, 0x11, 0x11, 0x11, 0x13, 0x0D, 0x00],
+  "v": [0x00, 0x00, 0x11, 0x11, 0x11, 0x0A, 0x04, 0x00],
+  "y": [0x00, 0x00, 0x11, 0x11, 0x11, 0x0F, 0x01, 0x0E],
+  "z": [0x00, 0x00, 0x1F, 0x02, 0x04, 0x08, 0x1F, 0x00]
+};
+
+const FALLBACK_GLYPH = [0x1F, 0x11, 0x11, 0x11, 0x11, 0x11, 0x1F, 0x00];
+
+function getGlyph(char) {
+  if (TURKISH_GLYPHS[char]) return TURKISH_GLYPHS[char];
+  const mapped = ASCII_GLYPHS[char] || ASCII_GLYPHS[char.toLowerCase()] || ASCII_GLYPHS[char.toUpperCase()];
+  return mapped || FALLBACK_GLYPH;
+}
+
+function toChars(text) {
+  return Array.from(text);
+}
+
+function drawGlyph(ctx, x, y, pattern) {
+  const { PX, CHAR_W, CHAR_H } = LCD_PREVIEW;
+  ctx.fillStyle = "#9dff9d";
+  for (let row = 0; row < CHAR_H; row++) {
+    const bits = pattern[row] & 0x1F;
+    for (let col = 0; col < CHAR_W; col++) {
+      if (bits & (1 << (CHAR_W - 1 - col))) {
+        ctx.fillRect(x + col * PX, y + row * PX, PX, PX);
+      }
+    }
+  }
+}
+
+function drawLine(ctx, text, row) {
+  const { CELL_W, CELL_H } = LCD_PREVIEW;
+  const y = row * CELL_H + 4;
+  for (let col = 0; col < Vorlaxen.LCD_COLS; col++) {
+    const char = text[col] || " ";
+    const x = col * CELL_W + 4;
+    drawGlyph(ctx, x, y, getGlyph(char));
+  }
+}
+
+function renderPreviewCanvas(canvas, line1, line2) {
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#1a3a1a";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  drawLine(ctx, line1.padEnd(Vorlaxen.LCD_COLS, " ").slice(0, Vorlaxen.LCD_COLS), 0);
+  drawLine(ctx, line2.padEnd(Vorlaxen.LCD_COLS, " ").slice(0, Vorlaxen.LCD_COLS), 1);
+}
+
+function computePreviewLines(chars, scrollEnabled) {
+  const cols = Vorlaxen.LCD_COLS;
+  const rows = Vorlaxen.LCD_ROWS;
+
+  if (chars.length === 0) {
+    return { line1: "", line2: "", mode: "empty", scroll: false };
+  }
+  if (chars.length <= cols) {
+    return { line1: chars.join(""), line2: "", mode: "1line", scroll: false };
+  }
+  if (chars.length <= cols * rows) {
+    return {
+      line1: chars.slice(0, cols).join(""),
+      line2: chars.slice(cols, cols * rows).join(""),
+      mode: "2line",
+      scroll: false
+    };
+  }
+  if (scrollEnabled) {
+    return { line1: "", line2: "", mode: "scroll", scroll: true };
+  }
+  return {
+    line1: chars.slice(0, cols).join(""),
+    line2: chars.slice(cols, cols * rows).join(""),
+    mode: "cut",
+    scroll: false
+  };
+}
+
+function wrapChars(chars, width) {
+  const lines = [];
+  for (let i = 0; i < chars.length; i += width) {
+    lines.push(chars.slice(i, i + width).join(""));
+  }
+  return lines;
+}
+
+function createLcdPreviewController({ canvas, readout, wrap, scrollMsInput, scrollEnabledInput }) {
+  let scrollOffset = 0;
+  let scrollTimer = null;
+
+  function stopScroll() {
+    if (scrollTimer) {
+      clearInterval(scrollTimer);
+      scrollTimer = null;
+    }
+    scrollOffset = 0;
+  }
+
+  function updateWrap(chars, scrollMode) {
+    if (!wrap) return;
+    const lines = wrapChars(chars, Vorlaxen.LCD_COLS);
+    if (lines.length === 0) {
+      wrap.textContent = "";
+      return;
+    }
+    if (scrollMode) {
+      wrap.textContent =
+        "Full text (16-character lines):\n" +
+        lines.map((line, index) => `${String(index + 1).padStart(2, "0")}: ${line}`).join("\n");
+      return;
+    }
+    wrap.textContent =
+      "Full text:\n" +
+      lines.slice(0, Vorlaxen.LCD_ROWS)
+        .map((line, index) => `${String(index + 1).padStart(2, "0")}: ${line}`)
+        .join("\n");
+  }
+
+  function startScroll(chars) {
+    stopScroll();
+    const padded = [" ", " ", ...chars, " ", " "];
+    const maxOffset = Math.max(0, padded.length - Vorlaxen.LCD_COLS);
+    const delay = Math.max(
+      Vorlaxen.MIN_SCROLL_MS,
+      Number(scrollMsInput?.value) || Vorlaxen.DEFAULT_SCROLL_MS
+    );
+
+    const tick = () => {
+      const windowChars = padded.slice(scrollOffset, scrollOffset + Vorlaxen.LCD_COLS);
+      const windowText = windowChars.join("").padEnd(Vorlaxen.LCD_COLS, " ");
+      renderPreviewCanvas(canvas, windowText, "");
+      if (readout) {
+        readout.textContent =
+          `Scrolling LCD line: "${windowText.trimEnd()}" (${scrollOffset + 1}/${maxOffset + 1})`;
+      }
+      scrollOffset = scrollOffset >= maxOffset ? 0 : scrollOffset + 1;
+    };
+
+    tick();
+    scrollTimer = setInterval(tick, delay);
+  }
+
+  function update(text) {
+    const chars = toChars(text);
+    const layout = computePreviewLines(chars, scrollEnabledInput?.checked ?? true);
+
+    if (layout.mode === "empty") {
+      stopScroll();
+      renderPreviewCanvas(canvas, "", "");
+      updateWrap([], false);
+      if (readout) readout.textContent = "";
+      return layout;
+    }
+
+    if (layout.scroll) {
+      updateWrap(chars, true);
+      startScroll(chars);
+      return layout;
+    }
+
+    stopScroll();
+    renderPreviewCanvas(canvas, layout.line1, layout.line2);
+    updateWrap(chars, false);
+    if (readout) {
+      readout.textContent =
+        `LCD line 1: "${layout.line1.trimEnd()}" | line 2: "${layout.line2.trimEnd()}"`;
+    }
+    return layout;
+  }
+
+  return { update, stopScroll };
+}

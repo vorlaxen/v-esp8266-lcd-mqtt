@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vorlaxen Panel</title>
+  <link rel="stylesheet" href="/css/style.css?v=1">
+</head>
+<body>
+  <main class="wrap">
+    <header class="page-header">
+      <h1>Vorlaxen Panel</h1>
+      <p class="hint">Control your device LCD over the local network.</p>
+    </header>
+
+    <section class="block" aria-labelledby="network-heading">
+      <h2 id="network-heading">Network Info</h2>
+      <table class="info">
+        <tr><td>IP</td><td id="statusIp">-</td></tr>
+        <tr><td>Hostname</td><td><a id="statusHost" href="#">-</a></td></tr>
+        <tr><td>WiFi</td><td id="statusSsid">-</td></tr>
+        <tr><td>Signal</td><td id="statusRssi">-</td></tr>
+        <tr><td>Device ID</td><td id="statusDeviceId">-</td></tr>
+      </table>
+      <button type="button" class="btn" id="refreshBtn">Refresh</button>
+    </section>
+
+    <section class="block" aria-labelledby="lcd-heading">
+      <h2 id="lcd-heading">LCD Control</h2>
+
+      <div class="lcd-preview">
+        <div class="lcd-preview__label">LCD preview (16×2 characters)</div>
+        <canvas id="previewCanvas" width="272" height="56" aria-label="LCD preview"></canvas>
+        <div id="previewReadout" class="preview-readout"></div>
+        <pre id="previewWrap" class="preview-wrap"></pre>
+      </div>
+
+      <form id="messageForm" class="form">
+        <label for="messageText">
+          Message
+          <textarea id="messageText" rows="3" maxlength="64" placeholder="Text shown on the LCD"></textarea>
+        </label>
+
+        <div class="row">
+          <label class="check" for="scrollEnabled">
+            <input type="checkbox" id="scrollEnabled" checked>
+            Single-line scroll (33+ characters)
+          </label>
+          <label for="scrollMs">
+            Speed (ms)
+            <input type="number" id="scrollMs" min="100" max="2000" step="50" value="300">
+          </label>
+        </div>
+
+        <div class="row meta">
+          <span id="charCount">0 / 64</span>
+          <span id="lineInfo">1 line</span>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">Send</button>
+          <button type="button" class="btn" id="restoreBtn">Restore network screen</button>
+          <button type="button" class="btn" id="clearBtn">Clear text</button>
+        </div>
+      </form>
+
+      <div class="quick">
+        <span>Quick:</span>
+        <button type="button" class="btn btn-small quick-btn" data-text="Hello world">Hello</button>
+        <button type="button" class="btn btn-small quick-btn" data-text="Vorlaxen IoT device is online">Long text</button>
+        <button type="button" class="btn btn-small quick-btn" data-text="OK">OK</button>
+      </div>
+    </section>
+
+    <p id="statusMsg" class="status-msg" role="status" aria-live="polite"></p>
+  </main>
+
+  <script src="/js/constants.js?v=1"></script>
+  <script src="/js/ui.js?v=1"></script>
+  <script src="/js/lcd-glyphs.js?v=1"></script>
+  <script src="/js/api.js?v=1"></script>
+  <script src="/js/app.js?v=1"></script>
+</body>
+</html>

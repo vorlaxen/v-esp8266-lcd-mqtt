@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vorlaxen Setup</title>
+  <link rel="stylesheet" href="/css/style.css?v=1">
+</head>
+<body>
+  <main class="wrap">
+    <header class="page-header">
+      <h1>WiFi Setup</h1>
+      <p class="hint">Connect to <strong>ESPSetup</strong> and enter your home WiFi credentials.</p>
+    </header>
+
+    <section class="block" aria-labelledby="setup-heading">
+      <h2 id="setup-heading" class="visually-hidden">WiFi credentials</h2>
+      <form id="setupForm" class="form">
+        <label for="ssid">
+          WiFi Network
+          <select id="ssid" required>
+            <option value="">Scanning networks...</option>
+          </select>
+        </label>
+
+        <label for="password">
+          Password
+          <input id="password" type="password" autocomplete="off">
+        </label>
+
+        <div class="actions">
+          <button type="button" class="btn" id="scanBtn">Scan again</button>
+          <button type="submit" class="btn btn-primary" id="connectBtn">Connect</button>
+        </div>
+      </form>
+    </section>
+
+    <p id="statusMsg" class="status-msg" role="status" aria-live="polite"></p>
+  </main>
+
+  <script src="/js/constants.js?v=1"></script>
+  <script src="/js/ui.js?v=1"></script>
+  <script src="/js/api.js?v=1"></script>
+  <script src="/js/setup.js?v=1"></script>
+</body>
+</html>

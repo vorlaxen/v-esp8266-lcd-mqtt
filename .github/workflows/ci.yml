@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      mosquitto:
+        image: eclipse-mosquitto:2
+        ports:
+          - 1883:1883
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python test dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Install PlatformIO
+        run: pip install platformio
+
+      - name: Build firmware
+        run: pio run
+
+      - name: Native unit tests (54 cases, 6 suites)
+        run: pio test -e native -v
+
+      - name: Python protocol tests
+        working-directory: scripts
+        env:
+          PYTHONPATH: .
+        run: python3 -m unittest tests.test_protocol -v
+
+      - name: MQTT integration tests
+        working-directory: scripts
+        env:
+          PYTHONPATH: .
+          MQTT_BROKER: 127.0.0.1
+          MQTT_PORT: 1883
+          VORLAXEN_TEST_STRICT: "1"
+        run: python3 -m unittest tests.test_mqtt_integration -v
+
+      - name: Full test script (strict)
+        env:
+          MQTT_BROKER: 127.0.0.1
+          MQTT_PORT: 1883
+          VORLAXEN_TEST_STRICT: "1"
+        run: |
+          chmod +x scripts/run_tests.sh
+          ./scripts/run_tests.sh --integration --strict --no-build
